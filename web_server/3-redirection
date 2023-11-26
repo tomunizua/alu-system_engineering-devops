@@ -18,7 +18,7 @@ CONFIG=\
 	server_name _;
 	rewrite ^/redirect_me(.*)$ http://www.google.com/ permanent;
         location / {
-                try_files \$uri \$uri/ =404;
+                try_files \$uri \$uri/ =301;
 	}
 }"
 
