@@ -11,8 +11,8 @@ backend allServers
 	timeout server  10s
 	balance roundrobin
 	mode http
-	server 5830-web-01 3.88.23.166:80 check
-	server 5830-web-02 54.165.91.235:80 check
+	server 5830-web-01 34.202.205.246:80 check
+	server 5830-web-02 54.162.196.96:80 check
 "
 FRONTEND_CONFIG=\
 "
