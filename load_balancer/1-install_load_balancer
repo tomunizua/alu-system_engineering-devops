@@ -6,21 +6,21 @@ apt-get -y install haproxy
 
 BACKEND_CONFIG=\
 "
-backend allServers
+backend lb_back
 	timeout connect 10s
 	timeout server  10s
 	balance roundrobin
 	mode http
-	server 5830-web-01 34.202.205.246:80 check
-	server 5830-web-02 54.162.196.96:80 check
+	server 5839-web-01 34.202.205.246:80 check
+	server 5839-web-02 54.162.196.96:80 check
 "
 FRONTEND_CONFIG=\
 "
-frontend www
+frontend lb_front
 	mode http
 	timeout client 10s
 	bind *:80
-	default_backend allServers
+	default_backend lb_back
 "
 echo -e "$FRONTEND_CONFIG" >> /etc/haproxy/haproxy.cfg
 echo -e "$BACKEND_CONFIG" >> /etc/haproxy/haproxy.cfg
